@@ -1,0 +1,12 @@
+FROM golang:alpine
+
+WORKDIR /go/src
+
+COPY . .
+
+RUN CGO_ENABLED=0
+RUN go build -o /src main.go
+
+EXPOSE 8080
+
+CMD ["/src"]
